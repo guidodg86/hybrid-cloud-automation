@@ -1,0 +1,438 @@
+annotations: []
+nodes:
+  - boot_disk_size: null
+    configuration:
+      - name: default
+        content: System Bridge
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n0
+    image_definition: null
+    label: ext-conn-1
+    node_definition: external_connector
+    parameters: {}
+    ram: null
+    tags: []
+    x: 240
+    y: -200
+    interfaces:
+      - id: i0
+        label: port
+        slot: 0
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: iosxe_config.txt
+        content: "Building configuration...\n\nCurrent configuration : 6263 bytes\n\
+          !\n! Last configuration change at 21:42:31 UTC Sun Oct 13 2024\n!\nversion\
+          \ 17.3\nservice timestamps debug datetime msec\nservice timestamps log datetime\
+          \ msec\nservice call-home\nplatform qfp utilization monitor load 80\nplatform\
+          \ punt-keepalive disable-kernel-core\nplatform console serial\n!\nhostname\
+          \ R1\n!\nboot-start-marker\nboot-end-marker\n!\n!\nno logging console\n\
+          !\nno aaa new-model\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\nlogin on-success log\n\
+          !\n!\n!\n!\n!\n!\n!\nsubscriber templating\n!\n!\n!\n!\n!\n!\nmultilink\
+          \ bundle-name authenticated\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n\
+          !\ncrypto pki trustpoint SLA-TrustPoint\n enrollment pkcs12\n revocation-check\
+          \ crl\n!\ncrypto pki trustpoint TP-self-signed-1959781641\n enrollment selfsigned\n\
+          \ subject-name cn=IOS-Self-Signed-Certificate-1959781641\n revocation-check\
+          \ none\n rsakeypair TP-self-signed-1959781641\n!\n!\ncrypto pki certificate\
+          \ chain SLA-TrustPoint\n certificate ca 01\n  30820321 30820209 A0030201\
+          \ 02020101 300D0609 2A864886 F70D0101 0B050030\n  32310E30 0C060355 040A1305\
+          \ 43697363 6F312030 1E060355 04031317 43697363\n  6F204C69 63656E73 696E6720\
+          \ 526F6F74 20434130 1E170D31 33303533 30313934\n  3834375A 170D3338 30353330\
+          \ 31393438 34375A30 32310E30 0C060355 040A1305\n  43697363 6F312030 1E060355\
+          \ 04031317 43697363 6F204C69 63656E73 696E6720\n  526F6F74 20434130 82012230\
+          \ 0D06092A 864886F7 0D010101 05000382 010F0030\n  82010A02 82010100 A6BCBD96\
+          \ 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D\n  CBB4C798 212AA147 C655D8D7\
+          \ 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520\n  1C394D78 462EF239 C659F715\
+          \ B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE\n  4AA4E80D DB6FD1C9 60B1FD18\
+          \ FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC\n  7390A3EB 2B5436AD C847A2C5\
+          \ DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188\n  68E69491 20F320E7 948E71D7\
+          \ AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7\n  C7479096 B4CB2D62 EA2F505D\
+          \ C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191\n  C55F0D76 61F9A4CD 3D992327\
+          \ A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44\n  DFC7C6CF 04DD7FD1 02030100\
+          \ 01A34230 40300E06 03551D0F 0101FF04 04030201\n  06300F06 03551D13 0101FF04\
+          \ 05300301 01FF301D 0603551D 0E041604 1449DC85\n  4B3D31E5 1B3E6A17 606AF333\
+          \ 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500\n  03820101 00507F24 D3932A66\
+          \ 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905\n  604EDCDE FF4FED2B 77FC460E\
+          \ CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B\n  D98987BF E40CBD9E 1AECA0C2\
+          \ 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8\n  467A3DF4 4D565700 6ADF0F0D\
+          \ CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C\n  7CA7B7E6 C1AF74F6 152E99B7\
+          \ B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B\n  5FB0DA06 B92AFE7F 494E8A9E\
+          \ 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678\n  80DDCD16 D6BACECA EEBC7CF9\
+          \ 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB\n  418616A9 4093E049 4D10AB75\
+          \ 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0\n  D697DF7F 28\n  \tquit\n\
+          crypto pki certificate chain TP-self-signed-1959781641\n certificate self-signed\
+          \ 01\n  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030\n\
+          \  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274\n\
+          \  69666963 6174652D 31393539 37383136 3431301E 170D3234 31303131 31323333\n\
+          \  33395A17 0D333431 30313131 32333333 395A3031 312F302D 06035504 03132649\n\
+          \  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 39353937\n\
+          \  38313634 31308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201\n\
+          \  0A028201 0100DDFD 2792E34D A7FDEDE8 85BF148C FE6E6A83 91B69EA4 974CAF73\n\
+          \  7B7D95A2 70B5A02F 7FC7E9FC 471B5B1C 4334E596 A6DB9486 2D7EB080 20B8CC47\n\
+          \  94D79395 353F83D6 D9F1B8AB F3E30B5C 0250FAD7 C674D525 470C5B59 4785791F\n\
+          \  90F3996B F55DDD7B 43EF4215 C0B30219 FB42C818 0F6B1543 4B45D75C 1B09A7A2\n\
+          \  DF1CB064 C403EBE5 F3A91CD8 15F7B99C FDA5D74D 5BD9401F CD1A9CBD 0A1917F6\n\
+          \  90596CD8 89F761BC 92EC5773 E93763C6 D8102EF6 A98F9AB5 B18341E4 2082B8E7\n\
+          \  59EBDD56 50D0CECA 77D64C9E 436627E3 95C9CBC4 9D4A523D B26EAEA2 26F173D7\n\
+          \  DF9EEB0E 562E4CE2 494FC55C 1D5074E3 8F4A67FD B67CEB4B A01D5A62 67A5D316\n\
+          \  8CA3C122 6BC50203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF\n\
+          \  301F0603 551D2304 18301680 1450473A 686C5003 803AB819 16CC81D5 ACB1C68B\n\
+          \  D9301D06 03551D0E 04160414 50473A68 6C500380 3AB81916 CC81D5AC B1C68BD9\n\
+          \  300D0609 2A864886 F70D0101 05050003 82010100 B305F2ED 349BC059 569FDDFE\n\
+          \  A18143CB 801C19E0 E2266372 F61A9920 36CD5AE0 9B4EEA81 5A844363 0BE5866A\n\
+          \  25D0FB06 3087B761 EC92B3ED 65BCD8CC 2AE72F75 26B1683D B1C5AB8B EAD7EFF0\n\
+          \  29AC1131 CC86B227 3751BFDB EEC22AF5 5F6C0FBF 88BA91BF 2224C7CB 5251969E\n\
+          \  C86B1FE8 DBD27503 28D01CB2 44C089F6 F63B03AF 23CEC3D9 1A883A80 1783B43D\n\
+          \  103CF997 27200791 CEEB9A85 A63F942E 682440AC F36CFD16 79C9B8B9 FC001302\n\
+          \  2CD2B0E4 5F262DF0 4863CCAB 5C178F02 13A2AD59 9402D8DA 1BF20EF7 0B700DFB\n\
+          \  24358392 6461F02B 9CABAB50 ED74794B 49F5BCF7 60993C23 80E5D6C5 F44532B3\n\
+          \  A7685D9A 91025B6F EF745233 8DE4DFE6 DD60349A\n  \tquit\n!\nlicense udi\
+          \ pid CSR1000V sn 9OJZ4HAORD1\ndiagnostic bootup level minimal\nmemory free\
+          \ low-watermark processor 71464\n!\n!\nspanning-tree extend system-id\n\
+          !\nusername admin privilege 15 secret 9 $9$SYcfPZ5J5qHz9U$o6zMsyqz30Fb4Dltb6ONa5jdBsfxsgTvlPGi9v4iKGs\n\
+          !\nredundancy\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n!\n\
+          !\n!\n!\n!\n!\n!\ninterface GigabitEthernet1\n ip address 192.168.201.11\
+          \ 255.255.255.0\n negotiation auto\n no mop enabled\n no mop sysid\n!\n\
+          interface GigabitEthernet2\n no ip address\n shutdown\n negotiation auto\n\
+          \ no mop enabled\n no mop sysid\n!\ninterface GigabitEthernet3\n no ip address\n\
+          \ shutdown\n negotiation auto\n no mop enabled\n no mop sysid\n!\ninterface\
+          \ GigabitEthernet4\n no ip address\n shutdown\n negotiation auto\n no mop\
+          \ enabled\n no mop sysid\n!\nip forward-protocol nd\nno ip http server\n\
+          ip http secure-server\n!\nip route 0.0.0.0 0.0.0.0 192.168.201.1\n!\n!\n\
+          !\n!\n!\n!\n!\ncontrol-plane\n!\n!\n!\n!\n!\n!\nline con 0\n exec-timeout\
+          \ 0 0\n stopbits 1\nline vty 0\n exec-timeout 0 0\n login local\n transport\
+          \ input ssh\nline vty 1\n exec-timeout 0 0\n login local\n length 0\n transport\
+          \ input ssh\nline vty 2 4\n exec-timeout 0 0\n login local\n transport input\
+          \ ssh\n!\ncall-home\n ! If contact email address in call-home is configured\
+          \ as sch-smart-licensing@cisco.com\n ! the email address configured in Cisco\
+          \ Smart License Portal will be used as contact email address to send SCH\
+          \ notifications.\n contact-email-addr sch-smart-licensing@cisco.com\n profile\
+          \ \"CiscoTAC-1\"\n  active\n  destination transport-method http\n!\n!\n\
+          !\n!\n!\nend"
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n1
+    image_definition: null
+    label: R1-CSR1K
+    node_definition: csr1000v
+    parameters: {}
+    ram: null
+    tags: []
+    x: -200
+    y: -160
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: GigabitEthernet1
+        slot: 0
+        type: physical
+      - id: i2
+        label: GigabitEthernet2
+        slot: 1
+        type: physical
+      - id: i3
+        label: GigabitEthernet3
+        slot: 2
+        type: physical
+      - id: i4
+        label: GigabitEthernet4
+        slot: 3
+        type: physical
+  - boot_disk_size: null
+    configuration: []
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n2
+    image_definition: null
+    label: unmanaged-switch-0
+    node_definition: unmanaged_switch
+    parameters: {}
+    ram: null
+    tags: []
+    x: 120
+    y: -80
+    interfaces:
+      - id: i0
+        label: port0
+        slot: 0
+        type: physical
+      - id: i1
+        label: port1
+        slot: 1
+        type: physical
+      - id: i2
+        label: port2
+        slot: 2
+        type: physical
+      - id: i3
+        label: port3
+        slot: 3
+        type: physical
+      - id: i4
+        label: port4
+        slot: 4
+        type: physical
+      - id: i5
+        label: port5
+        slot: 5
+        type: physical
+      - id: i6
+        label: port6
+        slot: 6
+        type: physical
+      - id: i7
+        label: port7
+        slot: 7
+        type: physical
+  - boot_disk_size: null
+    configuration:
+      - name: nxos_config.txt
+        content: |2-
+
+          !Command: show running-config
+          !Running configuration last done at: Sun Oct 13 21:42:54 2024
+          !Time: Sun Oct 13 21:42:54 2024
+
+          version 10.4(2) Bios:version
+          hostname N9K-Spine
+          vdc N9K-Spine id 1
+            limit-resource vlan minimum 16 maximum 4094
+            limit-resource vrf minimum 2 maximum 4097
+            limit-resource port-channel minimum 0 maximum 511
+            limit-resource m4route-mem minimum 58 maximum 58
+            limit-resource m6route-mem minimum 8 maximum 8
+
+          feature nxapi
+
+          no password strength-check
+          username admin password 5 $5$GFCAMA$FKG8zbAQCGJh40z6hxfdXDT.g15gA00vc51W5BITtjD  role network-admin
+          username cisco password 5 $5$HBDEDP$YDvdwvLYJhRTtxwKuP7oX3fVCF9J6jTF713BRb3kRHC  role network-admin
+          username cisco passphrase  lifetime 99999 warntime 14 gracetime 3
+          ip domain-lookup
+          copp profile strict
+          snmp-server user admin network-admin auth md5 176883824036FF5D48BC3AFE5C92D5E60A16 priv aes-128 3756A4D554DA3EEEFE5DFB68991A477B9FFF localizedV2key
+          snmp-server user cisco network-admin auth md5 0075C3A1436DD90C0F835EA1538CD9AA1336 priv aes-128 206BA1D30D7CDA322C976AA55C89D5BA5761 localizedV2key
+          rmon event 1 log trap public description FATAL(1) owner PMON@FATAL
+          rmon event 2 log trap public description CRITICAL(2) owner PMON@CRITICAL
+          rmon event 3 log trap public description ERROR(3) owner PMON@ERROR
+          rmon event 4 log trap public description WARNING(4) owner PMON@WARNING
+          rmon event 5 log trap public description INFORMATION(5) owner PMON@INFO
+
+          ip route 0.0.0.0/0 192.168.201.1
+          vlan 1
+
+          vrf context management
+
+          interface Ethernet1/1
+            no switchport
+            ip address 192.168.201.10/24
+            no shutdown
+
+          interface Ethernet1/2
+
+          interface Ethernet1/3
+
+          interface Ethernet1/4
+
+          interface Ethernet1/5
+
+          interface Ethernet1/6
+
+          interface Ethernet1/7
+
+          interface Ethernet1/8
+
+          interface Ethernet1/9
+
+          interface Ethernet1/10
+
+          interface Ethernet1/11
+
+          interface Ethernet1/12
+
+          interface Ethernet1/13
+
+          interface Ethernet1/14
+
+          interface Ethernet1/15
+
+          interface Ethernet1/16
+
+          interface Ethernet1/17
+
+          interface Ethernet1/18
+
+          interface Ethernet1/19
+
+          interface Ethernet1/20
+
+          interface Ethernet1/21
+
+          interface Ethernet1/22
+
+          interface Ethernet1/23
+
+          interface Ethernet1/24
+
+          interface Ethernet1/25
+
+          interface Ethernet1/26
+
+          interface Ethernet1/27
+
+          interface Ethernet1/28
+
+          interface Ethernet1/29
+
+          interface Ethernet1/30
+
+          interface Ethernet1/31
+
+          interface Ethernet1/32
+
+          interface Ethernet1/33
+
+          interface Ethernet1/34
+
+          interface Ethernet1/35
+
+          interface Ethernet1/36
+
+          interface Ethernet1/37
+
+          interface Ethernet1/38
+
+          interface Ethernet1/39
+
+          interface Ethernet1/40
+
+          interface Ethernet1/41
+
+          interface Ethernet1/42
+
+          interface Ethernet1/43
+
+          interface Ethernet1/44
+
+          interface Ethernet1/45
+
+          interface Ethernet1/46
+
+          interface Ethernet1/47
+
+          interface Ethernet1/48
+
+          interface Ethernet1/49
+
+          interface Ethernet1/50
+
+          interface Ethernet1/51
+
+          interface Ethernet1/52
+
+          interface Ethernet1/53
+
+          interface Ethernet1/54
+
+          interface Ethernet1/55
+
+          interface Ethernet1/56
+
+          interface Ethernet1/57
+
+          interface Ethernet1/58
+
+          interface Ethernet1/59
+
+          interface Ethernet1/60
+
+          interface Ethernet1/61
+
+          interface Ethernet1/62
+
+          interface Ethernet1/63
+
+          interface Ethernet1/64
+
+          interface mgmt0
+            vrf member management
+          icam monitor scale
+
+          cli alias name wr copy run star
+          line console
+            exec-timeout 0
+          line vty
+            exec-timeout 0
+          boot nxos bootflash:/nxos64-cs.10.4.2.F.bin
+
+          no logging console
+    cpu_limit: null
+    cpus: null
+    data_volume: null
+    hide_links: false
+    id: n3
+    image_definition: null
+    label: N9K-Spine
+    node_definition: nxosv9000
+    parameters: {}
+    ram: null
+    tags: []
+    x: -200
+    y: 40
+    interfaces:
+      - id: i0
+        label: Loopback0
+        type: loopback
+      - id: i1
+        label: mgmt0
+        slot: 0
+        type: physical
+      - id: i2
+        label: Ethernet1/1
+        slot: 1
+        type: physical
+      - id: i3
+        label: Ethernet1/2
+        slot: 2
+        type: physical
+      - id: i4
+        label: Ethernet1/3
+        slot: 3
+        type: physical
+links:
+  - id: l0
+    n1: n1
+    n2: n2
+    i1: i1
+    i2: i3
+    conditioning: {}
+    label: csr1000v-0-GigabitEthernet1<->unmanaged-switch-0-port3
+  - id: l1
+    n1: n2
+    n2: n0
+    i1: i4
+    i2: i0
+    conditioning: {}
+    label: unmanaged-switch-0-port4<->ext-conn-1-port
+  - id: l2
+    n1: n3
+    n2: n2
+    i1: i2
+    i2: i0
+    conditioning: {}
+    label: N9K-Spine2-Ethernet1/1<->unmanaged-switch-0-port0
+lab:
+  description: ''
+  notes: ''
+  title: Lab at Fri 10:34 AM
+  version: 0.2.2
