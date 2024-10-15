@@ -6,7 +6,7 @@
 #     To build with debug:
 #     docker build . --progress=plain --no-cache
 #     To run docker container with terraform (from powershell on folder of terraform files):
-#     docker run  -it -v ${pwd}:/terraform-data/  guido/terraform 
+#     docker run  -it -v $(pwd):/terraform-data/  guido/terraform 
 #     To clean cache of builder:
 #     docker builder prune
 
