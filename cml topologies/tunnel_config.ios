@@ -1,0 +1,64 @@
+!Replace 1.1.1.1 with AWS tunnel public endpoint IP
+!Replace replace_key with key obtained via AWS
+
+crypto isakmp policy 200
+  encryption aes 128
+  authentication pre-share
+  group 2
+  lifetime 28800
+  hash sha
+exit
+
+crypto keyring keyring-vpn-aws-tunnel
+  local-address 192.168.201.11
+  pre-shared-key address 1.1.1.1 key replace_key
+exit
+
+crypto isakmp profile isakmp-vpn-aws-tunnel
+  local-address 192.168.201.11
+  match identity address 1.1.1.1
+  keyring keyring-vpn-aws-tunnel
+exit
+
+crypto ipsec transform-set ipsec-prop-vpn-aws-tunnel esp-aes 128 esp-sha-hmac
+  mode tunnel
+exit
+
+crypto ipsec profile ipsec-vpn-aws-tunnel
+  set pfs group2
+  set security-association lifetime seconds 3600
+  set transform-set ipsec-prop-vpn-aws-tunnel
+exit
+
+crypto ipsec df-bit clear
+crypto isakmp keepalive threshold 10 retry 10
+crypto ipsec security-association replay window-size 128
+crypto ipsec fragmentation before-encryption
+
+!First IP is always AWS the second one is us
+!Cannot confirm this on documentation only I did it experimentally
+
+interface Tunnel1
+  ip address 169.254.10.2 255.255.255.252
+  ip virtual-reassembly
+  tunnel source 192.168.201.11
+  tunnel destination 1.1.1.1
+  tunnel mode ipsec ipv4
+  tunnel protection ipsec profile ipsec-vpn-aws-tunnel
+  ip tcp adjust-mss 1379
+  no shutdown
+exit
+
+router bgp 65010
+  neighbor 169.254.10.1 remote-as 65011
+  neighbor 169.254.10.1 activate
+  neighbor 169.254.10.1 timers 10 30 30
+  address-family ipv4 unicast
+    neighbor 169.254.10.1 remote-as 65011
+    neighbor 169.254.10.1 timers 10 30 30
+    neighbor 169.254.10.1 activate
+    neighbor 169.254.10.1 soft-reconfiguration inbound
+    !For testing redistributing connected networks
+    redistribute connected
+  exit
+exit
