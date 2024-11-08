@@ -1,12 +1,8 @@
-#Some env variables
-variable "my_public_ip" {
-  type = string
-}
 
 
 # Cloud VPC
 resource "aws_vpc" "production" {
-  cidr_block = "10.10.0.0/16"
+  cidr_block = var.aws_cidr
 
   tags = {
     Name = "Production-cloud-vpc"
@@ -16,8 +12,8 @@ resource "aws_vpc" "production" {
 #One subnet per AZ
 resource "aws_subnet" "prod-subnet1" {
   vpc_id               = aws_vpc.production.id
-  cidr_block           = "10.10.1.0/24"
-  availability_zone_id = "euc1-az1"
+  cidr_block           = var.aws_cidr_subnet1
+  availability_zone_id = var.aws_az1
 
   tags = {
     Name = "subnet-Production-1"
@@ -25,8 +21,8 @@ resource "aws_subnet" "prod-subnet1" {
 }
 resource "aws_subnet" "prod-subnet2" {
   vpc_id               = aws_vpc.production.id
-  cidr_block           = "10.10.2.0/24"
-  availability_zone_id = "euc1-az2"
+  cidr_block           = var.aws_cidr_subnet2
+  availability_zone_id = var.aws_az2
 
   tags = {
     Name = "subnet-Production-2"
@@ -34,8 +30,8 @@ resource "aws_subnet" "prod-subnet2" {
 }
 resource "aws_subnet" "prod-subnet3" {
   vpc_id               = aws_vpc.production.id
-  cidr_block           = "10.10.3.0/24"
-  availability_zone_id = "euc1-az3"
+  cidr_block           = var.aws_cidr_subnet3
+  availability_zone_id = var.aws_az3
 
   tags = {
     Name = "subnet-Production-3"
