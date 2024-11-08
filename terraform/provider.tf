@@ -15,7 +15,7 @@ terraform {
 provider "nxos" {
   username = "admin"
   password = "cisco"
-  url      = "https://192.168.0.101"
+  url      = var.nxos_url
 }
 
 

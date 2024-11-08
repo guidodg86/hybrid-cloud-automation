@@ -18,16 +18,21 @@ resource "nxos_ipv4_vrf" "example" {
 resource "nxos_physical_interface" "r1-spine" {
   interface_id             = var.physical_interface_id
   layer                    = var.physical_interface_layer
+  admin_state              = "up"
 }
 resource "nxos_ipv4_interface" "r1-spine" {
   vrf          = nxos_ipv4_vrf.example.name
   interface_id = nxos_physical_interface.r1-spine.interface_id
+
+  depends_on = [nxos_physical_interface.r1-spine]
 }
 resource "nxos_ipv4_interface_address" "r1-spine" {
   vrf          = nxos_ipv4_vrf.example.name
   interface_id = nxos_physical_interface.r1-spine.interface_id
   address      = var.physical_interface_address
   type         = "primary"
+
+  depends_on = [nxos_ipv4_interface.r1-spine]
 }
 
 #BGP peer with R1
@@ -61,10 +66,14 @@ resource "nxos_bgp_peer_address_family" "example" {
 resource "nxos_svi_interface" "vlan10" {
   interface_id = "vlan10"
   admin_state  = "up"
+
+  depends_on = [nxos_feature_interface_vlan.example]
 }
 resource "nxos_svi_interface" "vlan20" {
   interface_id = "vlan20"
   admin_state  = "up"
+
+  depends_on = [nxos_feature_interface_vlan.example]
 }
 #This one does not work!! How can I put ip addr to the svi????
 # ALSO how can I advertise the prefix via BGP???
