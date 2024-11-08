@@ -1,3 +1,12 @@
 {
-  "image": "ghcr.io/colinjlacy/tofu-ansible-dev-container:0.0.2"
+  "image": "ghcr.io/colinjlacy/tofu-ansible-dev-container:0.0.2",
+  "customizations": {
+    "postCreateCommand": "ansible-galaxy collection install cisco.ios",
+    "extensions": [
+      "ms-azuretools.vscode-docker",
+      "redhat.vscode-yaml",
+      "vscoss.vscode-ansible",
+      "gamunu.opentofu"
+    ]
+  }
 }
