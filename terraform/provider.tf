@@ -15,10 +15,10 @@ terraform {
 provider "nxos" {
   username = "admin"
   password = "cisco"
-  url      = "https://192.168.201.10"
+  url      = var.nxos_url
 }
 
 
 provider "aws" {
-  region = "eu-central-1"
+  region = var.aws_region
 }
