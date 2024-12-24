@@ -3,6 +3,16 @@ variable "my_public_ip" {
   type = string
 }
 
+variable "router_1_ip" {
+  type = string
+  default = "192.168.201.11"
+}
+
+variable "tunnel_r1_ip" {
+    type = string
+    default = "192.168.0.10"
+}
+
 # NXOS variables
 variable "nxos_username" {
   type = string
