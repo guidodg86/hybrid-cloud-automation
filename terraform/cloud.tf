@@ -1,4 +1,18 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
 
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
 
 # Cloud VPC
 resource "aws_vpc" "production" {
@@ -87,10 +101,37 @@ resource "aws_customer_gateway" "prod-customer-gateway" {
 resource "aws_vpn_connection" "prod-vpn" {
   customer_gateway_id     = aws_customer_gateway.prod-customer-gateway.id
   vpn_gateway_id          = aws_vpn_gateway.prod-vpn-gw.id
-  tunnel1_inside_cidr     = "169.254.10.0/30"
+  tunnel1_inside_cidr     = var.tunnel_1_inside_cidr
+  tunnel2_inside_cidr    = var.tunnel_2_inside_cidr
   type                    = "ipsec.1"
 
   tags = {
     Name = "prod-ipsec-tunnel"
+  }
+}
+
+resource "aws_security_group" "vpn" {
+  name        = "Tunnel Security Group"
+  description = "Allow inbound traffic from VPN connection"
+  vpc_id      = aws_vpc.production.id
+  ingress {
+    protocol = "-1"
+    cidr_blocks = [
+      var.tunnel_1_inside_cidr,
+      var.tunnel_2_inside_cidr
+    ]
+    from_port   = 0
+    to_port     = 0
+  }
+}
+
+resource "aws_instance" "web" {
+  count = var.create_ec2 == true ? 1 : 0
+  ami           = data.aws_ami.ubuntu.id
+  instance_type = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.vpn.id]
+  subnet_id = aws_subnet.prod-subnet1.id
+  tags = {
+    Name = "VPN Remote Host"
   }
 }

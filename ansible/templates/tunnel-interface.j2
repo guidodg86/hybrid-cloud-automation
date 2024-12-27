@@ -1,0 +1,9 @@
+interface Tunnel1
+  ip address {{ tunnel_local_address }} 255.255.255.252
+  ip virtual-reassembly
+  tunnel source {{ ansible_host }}
+  tunnel destination {{ tunnel_outside_address }}
+  tunnel mode ipsec ipv4
+  tunnel protection ipsec profile ipsec-vpn-aws-tunnel
+  ip tcp adjust-mss 1379
+  no shutdown

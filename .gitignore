@@ -33,3 +33,4 @@ terraform.rc
 .terraform.lock.hcl
 
 .idea
+ansible/hosts

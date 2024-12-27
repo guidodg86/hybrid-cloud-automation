@@ -1,0 +1,11 @@
+router bgp {{ tunnel_local_asn }}
+  neighbor {{ tunnel_remote_address }} remote-as {{ tunnel_remote_asn }}
+  neighbor {{ tunnel_remote_address }} activate
+  neighbor {{ tunnel_remote_address }} timers 10 30 30
+  address-family ipv4 unicast
+    neighbor {{ tunnel_remote_address }} remote-as {{ tunnel_remote_asn }}
+    neighbor {{ tunnel_remote_address }} timers 10 30 30
+    neighbor {{ tunnel_remote_address }} activate
+    neighbor {{ tunnel_remote_address }} soft-reconfiguration inbound
+    !For testing redistributing connected networks
+    redistribute connected

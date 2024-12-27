@@ -1,0 +1,4 @@
+crypto isakmp profile isakmp-vpn-aws-tunnel
+  local-address {{ ansible_host }}
+  match identity address {{ tunnel_outside_address }}
+  keyring keyring-vpn-aws-tunnel

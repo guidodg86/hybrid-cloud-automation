@@ -1,0 +1,3 @@
+crypto keyring keyring-vpn-aws-tunnel
+  local-address {{ ansible_host }}
+  pre-shared-key address {{ tunnel_outside_address }} key {{ tunnel_preshared_key }}
