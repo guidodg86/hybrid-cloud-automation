@@ -1,0 +1,46 @@
+---
+- name: Cisco configure VPN tunnel
+  hosts: routers
+  gather_facts: false
+  
+
+  tasks:
+    - name: Configure ISAKMP Policies
+      tags: vpn, isakmp
+      ios_config:
+        src: "templates/isakmp-policy.j2"
+
+    - name: Configure ISAKMP keys
+      tags: vpn, isakmp
+      ios_config:
+        src: "templates/crypto-keyring.j2"
+
+    - name: Configure ISAKMP Profile
+      tags: vpn, isakmp
+      ios_config:
+        src: "templates/isakmp-profile.j2"
+
+    - name: Configure IPSec Transform Set
+      tags: vpn, ipsec
+      ios_config:
+        src: "templates/ipsec-transform.j2"
+
+    - name: Configure IPSec Profile
+      tags: vpn, ipsec
+      ios_config:
+        src: "templates/ipsec-profile.j2"
+
+    - name: Configure IPSec
+      tags: vpn, ipsec
+      ios_config:
+        src: "templates/ipsec.j2"
+
+    - name: Configure Tunnel Interface
+      tags: vpn, interface
+      ios_config:
+        src: "templates/tunnel-interface.j2"
+
+    - name: Configure BGP
+      tags: vpn, bgp
+      ios_config:
+        src: "templates/router-bgp.j2"

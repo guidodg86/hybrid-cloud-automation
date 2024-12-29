@@ -92,3 +92,18 @@ variable "aws_cidr_subnet3" {
   type    = string
   default = "10.10.128.0/18"
 }
+
+variable "tunnel_1_inside_cidr" {
+  type = string
+  default = "169.254.10.0/30"
+}
+
+variable "tunnel_2_inside_cidr" {
+  type = string
+  default = "169.254.247.156/30"
+}
+
+variable "create_ec2" {
+  type    = bool
+  default = false
+}
