@@ -15,3 +15,23 @@ enable
     ip route 0.0.0.0 0.0.0.0 192.168.0.1
     crypto key generate rsa modul 1024
     end
+  
+
+!Guido Version
+enable
+  conf t
+    hostname Tunnel_R2
+    username ansible privilege 15 secret ansible
+    line vty 0 15
+    login local
+    transport input ssh
+
+    int gigabitethernet1
+        shut
+        ip address 192.168.201.21 255.255.255.0
+        no shut
+
+    ip domain name cisco.com
+    ip route 0.0.0.0 0.0.0.0 192.168.201.1
+    crypto key generate rsa modul 1024
+    end
